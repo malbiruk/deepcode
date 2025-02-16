@@ -63,7 +63,7 @@ def process_stream(response_stream, response_list):
 
 def main():
     im = Image.open("/home/klim/Documents/work/scripts/deepcode/icon.png")
-    st.set_page_config(page_title="DeepSeek",
+    st.set_page_config(page_title="Ollama Chat",
                        page_icon=im)
     customize_page_appearance()
 
