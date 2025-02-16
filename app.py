@@ -4,6 +4,7 @@ Streamlit chat with DeepSeek
 
 import re
 
+import ollama
 import streamlit as st
 from langchain_ollama import OllamaLLM
 from PIL import Image
@@ -55,7 +56,7 @@ def generate_deepseek_response(llm):
 def process_stream(response_stream, response_list):
     for chunk_ in response_stream:
         chunk = chunk_.replace("<think>", "")
-        chunk = chunk.replace("</think>", "")
+        chunk = chunk.replace("</think>", "**Answer:**")
         response_list.append(chunk_)
         yield chunk
 
@@ -66,7 +67,9 @@ def main():
                        page_icon=im)
     customize_page_appearance()
 
-    model = st.selectbox("Model", ["deepseek-coder:1.3b", "deepseek-coder:6.7b", "deepseek-r1"])
+    model = st.selectbox("Model", [
+        model.model for model in ollama.list()["models"]
+    ])
 
     llm = OllamaLLM(
         model=model,
