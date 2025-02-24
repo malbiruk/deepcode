@@ -1,10 +1,10 @@
-# DeepCode
-Simple Streamlit chatting web-app for DeepSeek models via Ollama.
+# Ollama Chat
+Simple Streamlit chatting web-app for Ollama models.
 
 ### Installation
 - clone this repository
 - `pip install -r requirements.txt`
-- install `ollama` and pull models `deepseek-coder:1.3b`, `deepseek-coder:6.7b`, `deepseek-r1`
+- install `ollama` and pull some models
 
 ### Usage
 `streamlit run app.py`

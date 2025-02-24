@@ -56,14 +56,14 @@ def generate_deepseek_response(llm):
 def process_stream(response_stream, response_list):
     for chunk_ in response_stream:
         chunk = chunk_.replace("<think>", "")
-        chunk = chunk.replace("</think>", "**Answer:**")
+        chunk = chunk.replace("</think>", "\n\n**Answer:**")
         response_list.append(chunk_)
         yield chunk
 
 
 def main():
     im = Image.open("/home/klim/Documents/work/scripts/deepcode/icon.png")
-    st.set_page_config(page_title="DeepSeek",
+    st.set_page_config(page_title="Ollama Chat",
                        page_icon=im)
     customize_page_appearance()
 
